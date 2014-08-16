@@ -6,12 +6,15 @@
   [s]
   (filter odd? s)) ; Works :D , filter better than "(for [x s] (if (odd? x) x)))" <- noobs crap, also even? are nil.
 
-; - ^ - ^ - ^ - ^ Everything Works - ^ - ^ - ^ - ^ - At least that seems- -
 
 (defn nil-key
   "Escribir una funcion que dada una clave y un mapa, devuelva true, solamente si el mapa
    contiene una entrada con esa clave, y su valor es nil"
-  [k m])
+  [k m]
+  (and (contains? m k) (= (get m k) nil)) ; if this doesn't return false test would fail
+ )
+ 
+; - ^ - ^ - ^ - ^ Everything Works - ^ - ^ - ^ - ^ - At least that seems - -
 
 (defn range
   "Escribir una funcion que cree una lista de enteros en un rango dado.
