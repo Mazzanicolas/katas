@@ -56,11 +56,20 @@
   [text]
   )
 
+; Source: http://stackoverflow.com/questions/3249334/test-whether-a-list-contains-a-specific-value-in-clojure
+(defn list-contains? [coll value]
+  (let [s (seq coll)]
+    (if s
+      (if (= (first s) value) true (recur (rest s) value))
+      false)))
+; -^ StackOverflow method, i'll replace it later
+
 (defn find-truth
   "Escribir una funcion que tome un numero variable de booleans, y devuelva true
    solamente si alguno de los parametros son true, pero no todos son true. En otro
    caso debera retornar false"
   [& xs]
+ (and (list-contains? xs true) (list-contains? xs false))
   )
 
 (defn zip-map
