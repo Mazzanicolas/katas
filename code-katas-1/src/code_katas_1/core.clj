@@ -32,7 +32,10 @@
   "Escribir una funcion que reciba un numero variable de parametros
    y retorne el que tenga el valor mayor
    Restricciones: max y max-key"
-  [& args])
+  [& args]
+  (def x (sort args)); x become the args sorted list
+  (last x) ; And we take the last one, is the higher number :D !.
+  )
 
 (defn split-two
   "Escribir una funcion que parta una secuencia en dos partes
