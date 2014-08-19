@@ -14,14 +14,15 @@
   (and (contains? m k) (= (get m k) nil)) ; if this doesn't return false test would fail
  )
  
-; - ^ - ^ - ^ - ^ Everything Works - ^ - ^ - ^ - ^ - At least that seems - -
 
 (defn range
   "Escribir una funcion que cree una lista de enteros en un rango dado.
    Restricciones: range"
   [start end]
+  ((fn funcionAnonimaConNombre [x start end]
+  (if (not(= start end))(funcionAnonimaConNombre (conj x start) (inc start) end) x)) [] start end) 
   )
-
+; - ^ - ^ - ^ - ^ Everything Works - ^ - ^ - ^ - ^ - At least that seems - -
 (defn compress-sequence
   "Escribir una funcion que elimine los duplicados consecutivos
    de una secuencia"
