@@ -55,6 +55,7 @@
   "Escribir una funcion que reciba un string y devuelva un nuevo string conteniendo
    solamente las mayusculas."
   [text]
+  (apply str (filter #(Character/isUpperCase %) (seq text)))
   )
 
 ; Source: http://stackoverflow.com/questions/3249334/test-whether-a-list-contains-a-specific-value-in-clojure
