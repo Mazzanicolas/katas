@@ -79,4 +79,5 @@
    construya un mapa a partir de ellos.
    Restricciones: zipmap"
   [k v]
+    (apply assoc {} (interleave k v))
   )
