@@ -42,6 +42,7 @@
   "Escribir una funcion que parta una secuencia en dos partes
    Restricciones: split-at"
   [length s]
+  (conj (conj '() (drop length s)) (take length s))
   )
 
 (defn inter-two
@@ -79,5 +80,5 @@
    construya un mapa a partir de ellos.
    Restricciones: zipmap"
   [k v]
-    (apply assoc {} (interleave k v))
+    (apply assoc {} (interleave k v))	
   )
