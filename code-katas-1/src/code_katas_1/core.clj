@@ -27,6 +27,16 @@
   "Escribir una funcion que elimine los duplicados consecutivos
    de una secuencia"
   [s]
+  (defn clojure-potter [x] ;el metodo tiene hambre y se come la ultima letra, igual esperamos que le agarre daibetes y ahì 
+  ;nos da lo que queremos
+    (conj (for [i (range 0 (-(.length x)1)) 
+                                    :let [a (nth x i)]
+                                    :when (not(=(nth x (inc i)) a ))] 
+                                 a ) (last x) )
+    )
+  
+    (concat (drop 1 (clojure-potter s))(take 1 (clojure-potter s)));diabetes
+       
   )
 
 (defn max-value
