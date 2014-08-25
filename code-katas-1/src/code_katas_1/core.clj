@@ -60,7 +60,13 @@
    luego el segundo de cada una, luego el tercero, etc.
    Restricciones: interleave"
   [s1 s2]
-  )
+  (defn moarGrande [p1 p2] (if (< (.length s1)(.length s2))s1 s2))
+  (defn primeros [x1 x2] (concat (take 1 x1)(take 1 x2)))
+  (reduce concat 
+  (for [i (range 0 (.length (moarGrande s1 s2)))]
+  (concat (take 1(primeros (drop i s1)(drop i  s2)))(drop 1(primeros (drop i s1)(drop i  s2)) )))
+  )  
+ )
 
 (defn retrieve-caps
   "Escribir una funcion que reciba un string y devuelva un nuevo string conteniendo
