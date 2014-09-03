@@ -12,8 +12,13 @@
   "Dado un numero cualquiera de secuencias, cada una ya ordenada de menor a mayor, encontrar el numero
    mas chico que aparezca en todas las secuencias, las secuencias pueden ser infinitas."
   [& seqs]
+  (if(not(=(first(sort(map first seqs)))(last(sort(map first seqs)))))(do
+   (apply search (for [element seqs] (if (= (first element) (first(sort(map first seqs))))(rest element) element))
+     )
+    )
+    (first(sort(map first seqs)))
+   )
   )
-
 
 (defn intercalar
   "Escriba una funcion que tome un predicado de 2 argumentos, un valor y una coleccion, y
