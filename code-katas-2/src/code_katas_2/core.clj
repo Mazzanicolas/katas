@@ -5,6 +5,7 @@
   "Escribir una funcion que acepte una funcion parcial con cantidad de argumentos desconocida,
    retornar una funcion equivalente de n argumentos"
   [f]
+  (fn  [& args] (reduce #(%1 %2) f args))
   )
 
 
@@ -28,7 +29,7 @@
    (flatten
    (for [ i (range) :while (not(nil? (first(drop i secuencia)))) ] 
        (if (not(nil?(first (drop (inc i)secuencia))))
-        (if (predicado (nth secuencia i)(nth secuencia (+ i 1)))
+        (if (predicado (nth secuencia i)(nth secuencia (inc i)))
          (concat [(nth secuencia i)] [valor])  (nth secuencia i)       )   (nth secuencia i)    )   )  ) 
   )
 
