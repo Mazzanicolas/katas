@@ -41,4 +41,16 @@
    La funcion debe aceptar una secuencia inicial de numeros, y devolver una secuencia infinita de compresiones, donde
    cada nuevo elemento es el elemento anterior comprimido."
   [secuencia]
+  (defn variablesForzadas [secuencia stack lista]
+  (flatten
+  (if(not(empty? secuencia))
+	    (if (= 0 (compare (first secuencia) (second secuencia)))
+	      (do (variablesForzadas (drop 1 secuencia) (inc stack) lista))
+       (do  (variablesForzadas (drop 1 secuencia) 0 (conj [lista][(inc stack)] [(first secuencia)]) ))
+	    )
+     lista
+    )
+   )
   )
+  (drop 1(iterate #(variablesForzadas % 0 ()) secuencia))
+)
