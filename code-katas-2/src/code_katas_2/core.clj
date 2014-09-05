@@ -20,11 +20,16 @@
    )
   )
 
-(defn intercalar
+(defn intercalar 
   "Escriba una funcion que tome un predicado de 2 argumentos, un valor y una coleccion, y
    retorne una nueva coleccion donde el valor es insertado intercalado cada dos argumentos
    que cumplan el predicado"
   [predicado valor secuencia]
+   (flatten
+   (for [ i (range) :while (not(nil? (first(drop i secuencia)))) ] 
+       (if (not(nil?(first (drop (inc i)secuencia))))
+        (if (predicado (nth secuencia i)(nth secuencia (+ i 1)))
+         (concat [(nth secuencia i)] [valor])  (nth secuencia i)       )   (nth secuencia i)    )   )  ) 
   )
 
 
